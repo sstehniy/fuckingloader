@@ -7,6 +7,12 @@ on:
     types: [ closed ]
     branches: [ master, main ]
 
+# Explicitly define permissions needed for release creation
+permissions:
+  contents: write
+  discussions: write
+  pull-requests: write
+
 jobs:
   build:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
